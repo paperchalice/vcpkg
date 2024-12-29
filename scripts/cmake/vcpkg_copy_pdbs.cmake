@@ -1,4 +1,5 @@
 function(vcpkg_copy_pdbs)
+    return()
     cmake_parse_arguments(PARSE_ARGV 0 "arg" "" "" "BUILD_PATHS")
 
     if(DEFINED arg_UNPARSED_ARGUMENTS)

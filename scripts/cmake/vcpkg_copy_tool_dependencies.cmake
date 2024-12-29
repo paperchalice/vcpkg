@@ -21,6 +21,7 @@ function(z_vcpkg_copy_tool_dependencies_search tool_dir path_to_search)
 endfunction()
 
 function(vcpkg_copy_tool_dependencies tool_dir)
+    return()
     if(ARGC GREATER 1)
         message(WARNING "${CMAKE_CURRENT_FUNCTION} was passed extra arguments: ${ARGN}")
     endif()

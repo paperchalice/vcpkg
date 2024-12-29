@@ -1,4 +1,5 @@
 function(vcpkg_copy_tools)
+    return()
     cmake_parse_arguments(PARSE_ARGV 0 arg "AUTO_CLEAN" "SEARCH_DIR;DESTINATION" "TOOL_NAMES")
 
     if(DEFINED arg_UNPARSED_ARGUMENTS)
