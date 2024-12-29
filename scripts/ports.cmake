@@ -28,6 +28,9 @@ unset(CMAKE_TWEAK_VERSION)
 set(SCRIPTS "${CMAKE_CURRENT_LIST_DIR}" CACHE PATH "Location to stored scripts")
 list(APPEND CMAKE_MODULE_PATH "${SCRIPTS}/cmake")
 
+# We need exe.
+set(VCPKG_POLICY_ALLOW_EXES_IN_BIN enabled)
+
 # Increment this number if we intentionally need to invalidate all binary caches due a change in
 # the following scripts: 1
 include("${SCRIPTS}/cmake/execute_process.cmake")

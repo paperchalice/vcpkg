@@ -609,8 +609,8 @@ function(vcpkg_configure_make)
         # ${prefix} has an extra backslash to prevent early expansion when calling `bash -c configure "..."`.
         vcpkg_list(APPEND arg_OPTIONS_RELEASE
                             # Important: These should all be relative to prefix!
-                            "--bindir=\\\${prefix}/tools/${PORT}/bin"
-                            "--sbindir=\\\${prefix}/tools/${PORT}/sbin"
+                            # "--bindir=\\\${prefix}/tools/${PORT}/bin"
+                            # "--sbindir=\\\${prefix}/tools/${PORT}/sbin"
                             "--libdir=\\\${prefix}/lib" # On some Linux distributions lib64 is the default
                             #"--includedir='\${prefix}'/include" # already the default!
                             "--mandir=\\\${prefix}/share/${PORT}"
@@ -861,6 +861,11 @@ function(vcpkg_configure_make)
             vcpkg_add_to_path("${CURRENT_INSTALLED_DIR}${path_suffix_${current_buildtype}}/bin")
         endif()
         debug_message("Configure command:'${command}'")
+        message(STATUS "PATH is: $ENV{PATH}")
+        execute_process(
+                COMMAND ${base_cmd} -c "echo $PATH && false"
+                WORKING_DIRECTORY "${src_dir}"
+            )
         if (NOT arg_SKIP_CONFIGURE)
             message(STATUS "Configuring ${TARGET_TRIPLET}-${short_name_${current_buildtype}}")
             vcpkg_execute_required_process(
