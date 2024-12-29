@@ -619,8 +619,8 @@ function(z_vcpkg_make_default_path_and_configure_options out_var)
         # ${prefix} has an extra backslash to prevent early expansion when calling `bash -c configure "..."`.
         vcpkg_list(APPEND opts
                             # Important: These should all be relative to prefix!
-                            "--bindir=\\\${prefix}/tools/${PORT}/bin"
-                            "--sbindir=\\\${prefix}/tools/${PORT}/sbin"
+                            # "--bindir=\\\${prefix}/tools/${PORT}/bin"
+                            # "--sbindir=\\\${prefix}/tools/${PORT}/sbin"
                             "--libdir=\\\${prefix}/lib" # On some Linux distributions lib64 is the default
                             "--mandir=\\\${prefix}/share/${PORT}"
                             "--docdir=\\\${prefix}/share/${PORT}"
