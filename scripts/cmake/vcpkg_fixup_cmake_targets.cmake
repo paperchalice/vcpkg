@@ -98,7 +98,7 @@ function(vcpkg_fixup_cmake_targets)
     foreach(RELEASE_TARGET IN LISTS RELEASE_TARGETS)
         file(READ ${RELEASE_TARGET} _contents)
         string(REPLACE "${CURRENT_INSTALLED_DIR}" "\${_IMPORT_PREFIX}" _contents "${_contents}")
-        string(REGEX REPLACE "\\\${_IMPORT_PREFIX}/bin/([^ \"]+${EXECUTABLE_SUFFIX})" "\${_IMPORT_PREFIX}/${arg_TOOLS_PATH}/\\1" _contents "${_contents}")
+        # string(REGEX REPLACE "\\\${_IMPORT_PREFIX}/bin/([^ \"]+${EXECUTABLE_SUFFIX})" "\${_IMPORT_PREFIX}/${arg_TOOLS_PATH}/\\1" _contents "${_contents}")
         file(WRITE ${RELEASE_TARGET} "${_contents}")
     endforeach()
 
